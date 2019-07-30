@@ -37,11 +37,13 @@ struct Ball
     {
         if(((center.x - radius) <= 0) || ((center.x + radius) > width))
         {
+            velocity.x *= -1;
             acceleration.x *= -1;
         }
 
         if(((center.y - radius) <= 0) || ((center.y + radius) > height))
         {
+            velocity.y *= -1;
             acceleration.y *= -1;
         }
     }
