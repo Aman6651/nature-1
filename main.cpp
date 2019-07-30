@@ -35,7 +35,8 @@ int main()
         ElapsedTime = SDL_GetTicks() - LastTick;
         if(ElapsedTime >= MSPerFrame)
         {
-            nature.Update(ElapsedTime);
+            float dt = ElapsedTime / 1000.f;
+            nature.Update(dt);
             nature.Draw();
             SDL_RenderPresent(Renderer);
             LastTick = SDL_GetTicks();

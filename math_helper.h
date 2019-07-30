@@ -1,6 +1,9 @@
 #ifndef MATH_HELPER_H
 #define MATH_HELPER_H
 
+#include <cmath>
+#include <cstdlib>
+
 struct Vec2
 {
     float x;
@@ -34,6 +37,21 @@ struct Vec2
     Vec2 operator*(float s)
     {
         return Vec2(s*x, s*y);
+    }
+
+    float magnitude()
+    {
+        return sqrt(x*x + y*y);
+    }
+
+    void normalize()
+    {
+        float mag = magnitude();
+        if(mag != 0)
+        {
+            x /= mag;
+            y /= mag;
+        }
     }
 };
 
