@@ -1,3 +1,5 @@
+#include <iostream>
+#include "graphics.h"
 #include "nature.h"
 
 #define WIDTH 640
@@ -5,9 +7,12 @@
 
 int main()
 {
-    SDL_Init(SDL_INIT_VIDEO);
-    SDL_Window *Window = SDL_CreateWindow("Nature", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
-    SDL_Renderer *Renderer = SDL_CreateRenderer(Window, -1, SDL_RENDERER_ACCELERATED);
+    if(!Graphics::GetInstance()->Init(WIDTH, HEIGHT))
+    {
+        std::cout << "Graphics did not initialize" << std::endl;
+        return 0;
+    }
+    //Nature::GetInstance()->Init();
 
     bool Running = true;
     const unsigned int GameHz = 60;
@@ -15,8 +20,8 @@ int main()
     Uint32 LastTick = SDL_GetTicks();
     Uint32 ElapsedTime;
 
-    Canvas canvas(Renderer);
-    Nature nature(canvas, WIDTH, HEIGHT);
+    //Canvas canvas(Renderer);
+    //Nature nature(canvas, WIDTH, HEIGHT);
 
     while(Running)
     {
@@ -36,9 +41,11 @@ int main()
         if(ElapsedTime >= MSPerFrame)
         {
             float dt = ElapsedTime / 1000.f;
-            nature.Update(dt);
-            nature.Draw();
-            SDL_RenderPresent(Renderer);
+
+            //Nature.Update(dt);
+            //Nature.Render();
+
+            SDL_RenderPresent(Graphics::GetInstance()->GetRenderer());
             LastTick = SDL_GetTicks();
         }
     }
