@@ -1,7 +1,11 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
+#ifdef __APPLE__
 #include "SDL.h"
+#elif __linux__
+#include <SDL.h>
+#endif
 
 class Graphics
 {
