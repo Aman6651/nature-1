@@ -1,20 +1,24 @@
 #ifndef NATURE_H
 #define NATURE_H
 
-#include "canvas.h"
+#include "graphics.h"
 #include "ball.h"
 
 class Nature
 {
 public:
-    Nature(Canvas &canvas, int width, int height);
+    static Nature *GetInstance();
+    void Init();
     void Update(float dt);
-    void Draw();
+    void Render();
 
 private:
-    Canvas canvas;
+    static Nature *Instance;
     int width;
     int height;
+
+    Nature();
+    ~Nature();
 };
 
 #endif

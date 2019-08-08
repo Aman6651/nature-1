@@ -30,6 +30,12 @@ bool Graphics::Init(int width, int height)
     return IsInitialized;
 }
 
+void Graphics::Clear()
+{
+    SDL_SetRenderDrawColor(Renderer, 255, 255, 255, 255);
+    SDL_RenderClear(Renderer);
+}
+
 Graphics::Graphics()
 {
     IsInitialized = false;

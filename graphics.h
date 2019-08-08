@@ -10,9 +10,12 @@
 class Graphics
 {
 public: 
+    bool Init(int width, int height);
     static Graphics *GetInstance();
     SDL_Renderer *GetRenderer();
-    bool Init(int width, int height);
+    void Clear();
+    int GetWidth();
+    int GetHeight();
 
 private:
     static Graphics *Instance;

@@ -12,16 +12,13 @@ int main()
         std::cout << "Graphics did not initialize" << std::endl;
         return 0;
     }
-    //Nature::GetInstance()->Init();
+    Nature::GetInstance()->Init();
 
     bool Running = true;
     const unsigned int GameHz = 60;
     float MSPerFrame = 1.0f / GameHz * 1000;
     Uint32 LastTick = SDL_GetTicks();
     Uint32 ElapsedTime;
-
-    //Canvas canvas(Renderer);
-    //Nature nature(canvas, WIDTH, HEIGHT);
 
     while(Running)
     {
@@ -42,8 +39,8 @@ int main()
         {
             float dt = ElapsedTime / 1000.f;
 
-            //Nature.Update(dt);
-            //Nature.Render();
+            //Nature::GetInstance()->Update(dt);
+            //Nature::GetInstance()->Render();
 
             SDL_RenderPresent(Graphics::GetInstance()->GetRenderer());
             LastTick = SDL_GetTicks();

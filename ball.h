@@ -1,9 +1,9 @@
 #ifndef BALL_H
 #define BALL_H
 
-#include "math_helper.h"
+#include "nature_object.h"
 
-struct Ball
+struct Ball : NatureObject
 {
     float radius = 8;
     Vec2 center;
@@ -46,6 +46,11 @@ struct Ball
             velocity.y *= -1;
             acceleration.y *= -1;
         }
+    }
+
+    void Draw()
+    {
+        DrawCircle(center, radius);
     }
 };
 
