@@ -39,6 +39,16 @@ struct Vec2
         return *this;
     }
 
+    Vec2 operator+(const Vec2 rhs)
+    {
+        return Vec2(x + rhs.x, y + rhs.y);
+    }
+
+    Vec2 operator-(const Vec2 rhs)
+    {
+        return Vec2(x - rhs.x, y - rhs.y);
+    }
+
     Vec2 operator*(float s)
     {
         return Vec2(s*x, s*y);

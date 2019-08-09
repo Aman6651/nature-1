@@ -13,7 +13,7 @@ struct Ball : NatureObject
     Ball()
     {
         center = Vec2(320, 160);
-        velocity = Vec2(0,0);
+        velocity = Vec2(-4, 10);
         acceleration = Vec2(0.1, 1);
     }
 
@@ -50,6 +50,7 @@ struct Ball : NatureObject
     void Draw()
     {
         DrawCircle(center, radius);
+        DrawLine(center, center + velocity);
     }
 };
 
