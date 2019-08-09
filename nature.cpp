@@ -19,9 +19,9 @@ void Nature::Init(int width, int height)
     Height = height;
 }
 
-void Nature::Update(float dt)
+void Nature::Update(float dt, Input *input)
 {
-    ball.Update(dt);
+    ball.Update(dt, input);
     ball.CheckEdges(Width, Height);
 }
 

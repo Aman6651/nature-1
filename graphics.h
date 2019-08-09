@@ -7,6 +7,12 @@
 #include <SDL.h>
 #endif
 
+struct Input
+{
+    int MouseX, MouseY;
+    Uint32 MouseButtons;
+};
+
 class Graphics
 {
 public: 

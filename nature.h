@@ -9,7 +9,7 @@ class Nature
 public:
     static Nature *GetInstance();
     void Init(int width, int height);
-    void Update(float dt);
+    void Update(float dt, Input *input);
     void Render();
 
 private:

@@ -18,6 +18,7 @@ int main()
         return 0;
     }
     Nature::GetInstance()->Init(WIDTH, HEIGHT);
+    Input input;
 
     bool Running = true;
     const unsigned int GameHz = 60;
@@ -44,7 +45,9 @@ int main()
         {
             float dt = ElapsedTime / 1000.f;
 
-            Nature::GetInstance()->Update(dt);
+            SDL_GetMouseState(&input.MouseX, &input.MouseY);
+
+            Nature::GetInstance()->Update(dt, &input);
             Nature::GetInstance()->Render();
 
             LastTick = SDL_GetTicks();

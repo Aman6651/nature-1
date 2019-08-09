@@ -17,11 +17,13 @@ struct Ball : NatureObject
         acceleration = Vec2(0.1, 1);
     }
 
-    void Update(float dt)
+    void Update(float dt, Input *input)
     {
-        acceleration = Vec2::Random() * 10;
+        Vec2 MousePosition(input->MouseX, input->MouseY);
+        acceleration = MousePosition - center;
 
         velocity += acceleration * dt;
+        Limit(100);
         center += velocity * dt;
     }
 
