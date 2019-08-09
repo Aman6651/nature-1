@@ -16,7 +16,10 @@ void NatureObject::DrawPixel(int x, int y)
     SDL_RenderDrawPoint(Renderer, x, y);
 }
 
-// TODO attribute this code to the website I found it on
+/* 
+ * Taken directly from:
+ * http://members.chello.at/easyfilter/bresenham.html
+ */
 void NatureObject::DrawCircle(int xm, int ym, int r)
 {
     SDL_SetRenderDrawColor(Renderer, 0, 0, 0, 255);
