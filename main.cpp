@@ -1,18 +1,23 @@
+
 #include <iostream>
 #include "graphics.h"
 #include "nature.h"
+#include <time.h>
 
 #define WIDTH 640
 #define HEIGHT 360
 
+
 int main()
 {
+    srand(time(NULL));
+
     if(!Graphics::GetInstance()->Init(WIDTH, HEIGHT))
     {
         std::cout << "Graphics did not initialize" << std::endl;
         return 0;
     }
-    Nature::GetInstance()->Init();
+    Nature::GetInstance()->Init(WIDTH, HEIGHT);
 
     bool Running = true;
     const unsigned int GameHz = 60;
@@ -39,10 +44,9 @@ int main()
         {
             float dt = ElapsedTime / 1000.f;
 
-            //Nature::GetInstance()->Update(dt);
-            //Nature::GetInstance()->Render();
+            Nature::GetInstance()->Update(dt);
+            Nature::GetInstance()->Render();
 
-            SDL_RenderPresent(Graphics::GetInstance()->GetRenderer());
             LastTick = SDL_GetTicks();
         }
     }

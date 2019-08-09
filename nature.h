@@ -8,14 +8,17 @@ class Nature
 {
 public:
     static Nature *GetInstance();
-    void Init();
+    void Init(int width, int height);
     void Update(float dt);
     void Render();
 
 private:
     static Nature *Instance;
-    int width;
-    int height;
+    int Width;
+    int Height;
+
+    // Nature Objects to be rendered to screen
+    Ball ball;
 
     Nature();
     ~Nature();

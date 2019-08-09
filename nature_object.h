@@ -12,6 +12,7 @@ private:
 
 protected:
     NatureObject();
+    ~NatureObject();
     void DrawPixel(int x, int y);
     void DrawLine(const Vec2 &tail, const Vec2 &head);
     void DrawCircle(int x, int y, int r);

@@ -1,3 +1,4 @@
+#include <iostream>
 #include "nature.h"
 
 Nature* Nature::Instance = NULL;
@@ -11,26 +12,27 @@ Nature* Nature::GetInstance()
     return Instance;
 }
 
-static Ball ball;
-
-void Nature::Init()
+void Nature::Init(int width, int height)
 {
-    ball.center = {100, 200};
+    ball = Ball();
+    Width = width;
+    Height = height;
 }
 
 void Nature::Update(float dt)
 {
+    ball.Update(dt);
+    ball.CheckEdges(Width, Height);
 }
 
 void Nature::Render()
 {
-    // Clear Screen
     Graphics::GetInstance()->Clear();
 
     // Render Nature Objects
     ball.Draw();
     
-    // Flip Buffer
+    Graphics::GetInstance()->Flip();
 }
 
 Nature::Nature()

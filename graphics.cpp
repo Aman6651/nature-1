@@ -32,8 +32,13 @@ bool Graphics::Init(int width, int height)
 
 void Graphics::Clear()
 {
-    SDL_SetRenderDrawColor(Renderer, 255, 255, 255, 255);
+    SDL_SetRenderDrawColor(Renderer, 0xFF, 0xFF, 0xFF, 0xFF);
     SDL_RenderClear(Renderer);
+}
+
+void Graphics::Flip()
+{
+    SDL_RenderPresent(Renderer);
 }
 
 Graphics::Graphics()

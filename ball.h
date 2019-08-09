@@ -12,15 +12,16 @@ struct Ball : NatureObject
     
     Ball()
     {
-        center = Vec2(rand() % 640, rand() % 320);
-        velocity = Vec2(rand() % 5, rand() % 5);
-        acceleration = Vec2(10, 10);
+        center = Vec2(320, 160);
+        velocity = Vec2(0,0);
+        acceleration = Vec2(0.1, 1);
     }
 
     void Update(float dt)
     {
+        acceleration = Vec2::Random() * 10;
+
         velocity += acceleration * dt;
-        //Limit(10);
         center += velocity * dt;
     }
 
@@ -35,17 +36,15 @@ struct Ball : NatureObject
 
     void CheckEdges(int width, int height)
     {
-        if(((center.x - radius) <= 0) || ((center.x + radius) > width))
-        {
-            velocity.x *= -1;
-            acceleration.x *= -1;
-        }
-
-        if(((center.y - radius) <= 0) || ((center.y + radius) > height))
-        {
-            velocity.y *= -1;
-            acceleration.y *= -1;
-        }
+        if (center.x < 0)
+            center.x = width;
+        else if (center.x > width)
+            center.x = 0;
+        
+        if (center.y < 0)
+            center.y = height;
+        else if (center.y > height)
+            center.y = 0;
     }
 
     void Draw()

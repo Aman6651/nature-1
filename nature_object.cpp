@@ -1,9 +1,14 @@
 #include "nature_object.h"
+#include <iostream>
 
 NatureObject::NatureObject()
 {
     TheGraphics = Graphics::GetInstance();
-    Renderer = TheGraphics->GetRenderer();
+    Renderer = Graphics::GetInstance()->GetRenderer();
+}
+
+NatureObject::~NatureObject()
+{
 }
 
 void NatureObject::DrawPixel(int x, int y)
@@ -36,5 +41,4 @@ void NatureObject::DrawLine(const Vec2 &tail, const Vec2& head)
 {
     SDL_RenderDrawLine(Renderer, tail.x, tail.y, head.x, head.y);
 }
-
 

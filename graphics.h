@@ -14,6 +14,7 @@ public:
     static Graphics *GetInstance();
     SDL_Renderer *GetRenderer();
     void Clear();
+    void Flip();
     int GetWidth();
     int GetHeight();
 
